@@ -1,0 +1,85 @@
+<?php
+header("Content-type: application/json");
+include 'conn.php';
+
+// Check if 'action' is set in the $_POST array
+$action = isset($_POST['action']) ? $_POST['action'] : '';
+
+function readAll($conn) {
+    $data = array();
+    $message = array();
+
+    // read All students in the database
+    $query = "SELECT * FROM student";
+
+    // execute the query
+    $result = $conn->query($query);
+
+    // success or error
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        $message = array("status" => true, "data" => $data);
+    } else {
+        $message = array("status" => false, "data" => $conn->error);
+    }
+
+    echo json_encode($message);
+}
+
+if ($action !== '') {
+    // Use the action if it's set
+    $action($conn);
+} else {
+    echo "Action is Required....";
+}
+?>
+
+===========================================
+===========================================
+===========================================
+==========================================
+
+header("Content-type: application/json");
+include 'conn.php';
+// function readAll
+// function Insert
+// function Delete
+// function Update
+
+//POST
+$action = $_POST['action'];
+function readAll($conn){
+    $data=array();
+    $message=array();
+    // read All students in the database
+    $query = "SELECT * FROM student";
+
+    // excute the query
+    $result=$conn->query($query);
+
+    // success or error
+    if ($result){
+        while($row= $result->fetch_assoc()){
+
+            $data[] = $row;
+
+        }
+        $message = array("status" => true, "data" => $data);
+        
+    }else{
+         $message= array("status"=>false,"data"=>$conn->error);
+        }
+
+        echo json_encode($message);
+
+
+}
+
+if(isset($action)){
+    $action($conn);
+}
+else{
+    echo "Action is Required....";
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery</title>
+  </head>
+  <body>
+    <ol class="li">
+      <li>Fadumo</li>
+      <li>Mustaf</li>
+      <li>Ali</li>
+      <li>Yasin</li>
+      <li>Yabar</li>
+    </ol>
+    <!-- <button id="b1">hide</button>
+    <button id="b2">show</button> -->
+    <div id="dv"></div>
+  </body>
+</html>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script>
+  $("li").each(function (i) {
+    $(this).on("click", function () {
+      alert(i + "wan ku salmay : " + $(this).html())
+      //   $(this).css("color", "red")
+    })
+  })
+</script>

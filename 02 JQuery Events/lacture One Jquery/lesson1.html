@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery</title>
+  </head>
+  <body>
+    <ol class="li">
+      <li>Fadumo</li>
+      <li>Mustaf</li>
+      <li>Ali</li>
+      <li>Yasin</li>
+      <li>Yabar</li>
+    </ol>
+    <button id="b1">hide</button>
+    <button id="b2">show</button>
+  </body>
+</html>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script>
+  //   $("li").css("color", "blue")
+  //   const li = document.querySelector(".li")
+  //   li.style.color = "blue"
+  $("li").click(function () {
+    $("li").css("color", "red")
+  })
+  $("#b1").click(() => {
+    $("li").hide(100)
+  })
+  $("#b2").click(() => {
+    $("li").show(200, function () {
+      $(this).css("color", "green")
+    })
+  })
+</script>

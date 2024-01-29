@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery</title>
+  </head>
+  <body>
+    <p>
+      Name:
+      <input
+        type="text"
+        name="txt1"
+        id="txt1"
+        placeholder="Enter name"
+      /><label></label>
+    </p>
+    <p>
+      tell:
+      <input
+        type="text"
+        name="txt2"
+        id="txt2"
+        placeholder="Enter name"
+      /><label></label>
+    </p>
+    <p>
+      National:
+      <select id="se1">
+        <option>Choose National</option>
+        <option value="Bangladesh">Bangladesh</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="China">China</option>
+        <option>Japan</option>
+        <option>Korea</option>
+        <option>Russia</option>
+        <option>South Korea</option>
+        <option>Taiwan</option>
+        <option>Vietnam</option>
+      </select>
+    </p>
+    <button id="b1">Click</button>
+    <button id="b2">Double Click</button>
+
+    <div id="dv"></div>
+  </body>
+</html>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script>
+  $("#b1").click(() => {
+    $("#dv").html("Welcome " + $(" input:first").val())
+  })
+  $("#b2").dblclick(() => {
+    $("#dv").html("Welcome " + $(" input:first").val())
+  })
+  $("#b1").mouseenter(() => {
+    $("#dv").html("You enter the mouse")
+  })
+  $("#b1").mouseleave(() => {
+    $("#dv").html("")
+  })
+  //   $("#se1").change((event) =>
+  //     alert("your country is: " + $(event.target).val())
+  //   )
+  $("#se1").change(function () {
+    alert("your country is: " + $(this).val())
+  })
+
+  $("input:first").blur(function () {
+    if ($(this).val() == "") {
+      $("label:first ").html(" Pleae inter your name").css("color", "green")
+      $("input:first").css("border", "1px solid red")
+      $(this).focus()
+    }
+  })
+</script>
